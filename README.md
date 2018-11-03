@@ -1,0 +1,1 @@
+# moleculer-keycloack-adapter
