@@ -2,8 +2,7 @@
 
 ### About 
 
-This library is um adapter to use keyclock Bearer autorization with moleculer
-API Gatway
+This library is um adapter to use keycloak Bearer authorization with the Moleculer API gateway
 
 
 ### How to Use 
@@ -19,4 +18,4 @@ KEYCLOAK_PUBLIC_CLIENT=true
 KEYCLOAK_SSL_REQUIRED=external
 ```
 
-After that you code will be working.
+After this, your code will be working.
