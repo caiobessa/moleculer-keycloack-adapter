@@ -13,7 +13,7 @@ let keycloak = new KeycloakConnect({}, config);
 
 keycloak.accessDenied = (request, response) => {
   response.writeHead(403);
-  response.end('Acesso Negado.');
+  response.end('Accesss Denied');
 };
 
 module.exports = [...keycloak.middleware(), keycloak.protect()];
