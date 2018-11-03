@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/caiobessa/moleculer-keycloack-adapter/issues"
   },
-  "homepage": "https://github.com/caiobessa/moleculer-keycloack-adapter#readme"
+  "homepage": "https://github.com/caiobessa/moleculer-keycloack-adapter#readme",
+  "dependencies": {
+    "keycloak-connect": "^4.5.0"
+  }
 }
