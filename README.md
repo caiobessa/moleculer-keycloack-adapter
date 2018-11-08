@@ -5,17 +5,71 @@
 This library is um adapter to use keycloak Bearer authorization with the Moleculer API gateway
 
 
-### How to Use 
+### How use 
 
-In your code create the file .env with the folowing variable below. 
-
-```shell
-KEYCLOAK_SERVER_URL=<auth-server-url>
-KEYCLOAK_RESOURCE_NAME=<client-name>
-KEYCLOAK_REALM=<RELM_NAME>
-KEYCLOAK_BEARER_ONLY=true
-KEYCLOAK_PUBLIC_CLIENT=true
-KEYCLOAK_SSL_REQUIRED=external
+In your API Gatway create this import
+```js
+const keycloack = require("moleculer-keycloack-adapter");
 ```
 
-After this, your code will be working.
+Create objet with the configurations:
+
+```js
+const keycloakMiddlewares = keycloack({
+	'auth-server-url': 'http://localhost:8180/auth',
+	resource: 'exemple-service',
+	realm: 'moleculer',
+	bearerOnly:  false,
+	'public-client': true,
+    'ssl-required': 'external'});
+```
+
+ Add object in you middlewares
+
+ ```js 
+
+ 	settings: {
+        use: [...keycloakMiddlewares],
+     }
+
+ ``` 
+
+
+Full code exemple
+```js
+"use strict";
+const ApiGateway = require("moleculer-web");
+const keycloack = require("moleculer-keycloack-adapter");
+
+const keycloakMiddlewares = keycloack({
+	'auth-server-url': 'http://localhost:8180/auth',
+	resource: 'exemple-service',
+	realm: 'moleculer',
+	bearerOnly:  false,
+	'public-client': true,
+    'ssl-required': 'external'});
+
+module.exports = {
+	name: "api",
+	mixins: [ApiGateway],
+
+	// More info about settings: https://moleculer.services/docs/0.13/moleculer-web.html
+	settings: {
+		port: process.env.PORT || 3000,
+		use: [...keycloakMiddlewares],
+
+		routes: [{
+			path: "/api",
+			whitelist: [
+				// Access to any actions in all services under "/api" URL
+				"**"
+			]
+		}],
+
+		// Serve assets from "public" folder
+		assets: {
+			folder: "public"
+		}
+	}
+};
+```
