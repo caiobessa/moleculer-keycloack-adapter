@@ -75,4 +75,5 @@ module.exports = {
 ```
 
 
-## for more information please open a issue
+
+*** If have any ideias of queries fell free to open a issue
