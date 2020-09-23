@@ -76,4 +76,4 @@ module.exports = {
 
 
 
-*** If have any ideias of queries fell free to open a issue
+***If have any ideias of queries fell free to open a issue***
