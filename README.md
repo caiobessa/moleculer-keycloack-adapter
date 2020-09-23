@@ -2,7 +2,7 @@
 
 ### About 
 
-This library is um adapter to use keycloak Bearer authorization with the Moleculer API gateway
+This library is an adapter to use keycloak Bearer authorization with the Moleculer API gateway
 
 
 ### How use 
